@@ -7,7 +7,7 @@ const AboutInicio = () => {
                 <div className="container">
                     <div className="row flex-lg-row-reverse align-items-center">
                         <div className="col-lg-6">
-                            <img src="../../../public/images/Inicio.jpg" className="d-block mx-lg-auto img-fluid" alt="Latin Dance Company" width={700} height={500} loading="lazy" />
+                            <img src="images/Inicio.jpg" className="d-block mx-lg-auto img-fluid" alt="Latin Dance Company" width={700} height={500} loading="lazy" />
                         </div>
                         <div className="col-lg-6">
                             <h1 className="text-capitalize lh-1 my-3">Descubre el ritmo en Latin Dance Company</h1>

@@ -7,11 +7,11 @@ const Header = () => {
             <header id="nav" className="site-header position-fixed text-white bg-navBar">
                 <nav id="navbar-example2" className="navbar navbar-expand-lg py-2">
                     <div className="container ">
-                        <a className="navbar-brand" href="./index.html"><img src="../../public/images/logo (2).png" alt="image" /></a>
+                        <a className="navbar-brand" href="./index.html"><img src="images/logo (2).png" alt="image" /></a>
                         <button className="navbar-toggler text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation"><ion-icon name="menu-outline" style={{ fontSize: 30 }} /></button>
                         <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
                             <div className="offcanvas-header">
-                                <h5 className="offcanvas-title" id="offcanvasNavbar2Label">Menu</h5>
+                                <h5 className="offcanvas-title" id="offcanvasNavbar2Label">Menu <img src="images/logo (2).png" alt="image" /></h5>
                                 <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" />
                             </div>
                             <div className="offcanvas-body">

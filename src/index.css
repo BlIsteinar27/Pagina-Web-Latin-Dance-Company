@@ -138,26 +138,28 @@ i:hover {
 }
 
 /*---- navbar section start ---- */
-.bg-navBar{
-  background-color: #1A242F;;
+.bg-navBar {
+  background-color: #1A242F; /* Color de fondo del navbar */
 }
+
 .text-white .nav-link.active,
 .text-white .nav-link:focus,
 .text-white .nav-link:hover {
-  color: var(----body-text-color);
+  color: var(--body-text-color); /* Color de texto activo y hover */
 }
 
 .nav-link.active,
 .nav-link:focus,
 .nav-link:hover {
-  color: var(----body-text-color);
+  color: var(--body-text-color); /* Color de texto activo y hover */
 }
 
 .nav-link {
-
-  color: var(--light-text-color);
-  font-size: 16px;
-  position: relative;
+  color: var(--light-text-color); /* Color de texto del enlace */
+  font-size: 16px; /* Tamaño de fuente */
+  position: relative; /* Posición relativa para pseudo-elementos */
+  margin-right: 15px; /* Ajustado para compactar */
+  padding: 10px 0; /* Ajustado para compactar */
 }
 
 .nav-link:not(.dropdown-toggle):after {
@@ -168,55 +170,78 @@ i:hover {
   width: 0;
   background: var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
-  transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out; /* Transición suave */
 }
 
 .dropdown-menu {
-  --bs-dropdown-border-radius: 0px;
+  --bs-dropdown-border-radius: 0px; /* Bordes del dropdown */
   --bs-dropdown-link-active-bg: var(--grey-color);
-  min-width: max-content;
+  min-width: max-content; /* Ancho mínimo del dropdown */
 }
 
 .nav-link.active:after {
-  width: 100%;
+  width: 100%; /* Ancho completo cuando está activo */
 }
 
-/* login form  */
+/* Estilos del formulario de inicio de sesión */
 a.password:hover {
-  color: var(--link-color);
+  color: var(--link-color); /* Color al pasar el ratón por el enlace de contraseña */
 }
 
 .form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: var(--dark-color);
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem #ffffffea;
+  color: #212529; /* Color del texto al enfocar el input */
+  background-color: #fff; /* Fondo blanco al enfocar el input */
+  border-color: var(--dark-color); /* Color del borde del input */
+  outline: none; /* Sin contorno al enfocar */
+  box-shadow: 0 0 0 0.25rem #ffffffea; /* Sombra del input al enfocar */
 }
 
 .bg-dark {
-  background-color: var(--dark-color) !important;
+  background-color: var(--dark-color) !important; /* Fondo oscuro importante */
 }
 
 .site-header {
-  position: fixed;
+  position: fixed; /* Fijo en la parte superior */
   top: 0;
-  width: 100%;
-  z-index: 99999;
-  transition: background 0.3s ease-out;
+  width: 100%; /* Ancho completo */
+  z-index: 99999; /* Z-index alto para superposición */
+  transition: background 0.3s ease-out; /* Transición suave para el fondo */
 }
 
 a.navbar-brand {
-  color: var(--body-text-color);
+  color: var(--body-text-color); /* Color de la marca del navbar */
 }
 
 a.nav-link.dropdown-toggle {
-  color: #D6D6D6;
-  font-size: 16px;
+  color: #D6D6D6; /* Color de los enlaces dropdown */
 }
 
+/* Estilos para el offcanvas */
 .offcanvas.show {
-  background-color: var(--dark-color);
+    background-color: var(--dark-color); /* Fondo oscuro para offcanvas */
+}
+
+/* Dropdowns visibles en móviles */
+.dropdown-menu {
+    display: none; /* Ocultar inicialmente los dropdowns */
+}
+
+.dropdown.show .dropdown-menu {
+    display: block; /* Mostrar cuando esté activo */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        padding: 8px 0; /* Reducir padding en móviles */
+        margin-right: 10px; /* Ajustar margen en móviles */
+        font-size: 14px; /* Ajustar tamaño de fuente en móviles */
+    }
+
+    .navbar-toggler {
+        padding:10px; 
+        border-color: var(--accent-color); /* Borde del botón toggle */ 
+    }
 }
 
 /*---- billboard section start ----  */
