@@ -1,15 +1,58 @@
-import React from 'react'
+import { useEffect, useState } from "react"
+import BotoneraSedes from "../components/(cursos)/BotoneraSedes"
+import BotoneraCursos from "../components/(cursos)/BotoneraCursos"
+
+const API = "http://localhost/latin%20dance/api/cursos/getCursos.php."
+const API2 = "http://localhost/latin%20dance/api/sedes/getSedes.php"
 
 const Cursos = () => {
+
+    const [cursos, setCursos] = useState([])
+    const [sedes, setSedes] = useState([])
+
+    const getCursos = async () => {
+        try {
+            const response = await fetch(API);
+            const data = await response.json();
+            //console.log(data)
+            setCursos(data);
+        } catch (error) {
+            console.error(error)
+        }
+    };
+    const getSedes = async () => {
+        try {
+            const response = await fetch(API2);
+            const data = await response.json();
+            //console.log(data)
+            setSedes(data);
+        } catch (error) {
+            console.error(error)
+        }
+    };
+    useEffect(() => {
+        getCursos();
+        getSedes();
+    }, []);
+
     return (
         <>
             <div className='container mt-5 pt-5'>
+                    <h3 className='text-center'>Sedes</h3> <br />
+                <div className='d-flex justify-content-center align-items-center mb-3'>
+
+                    {sedes && sedes.map((item) => (
+                        <BotoneraSedes key={item.id} item={item} />
+                    ))}
+
+                </div>
                     <h3 className='text-center'>Otros generos a explorar</h3> <br />
                 <div className='d-flex justify-content-center align-items-center mb-3'>
-                    <a href="#" className='btn btn-primary me-2'>Salsa</a>
-                    <a href="#" className='btn btn-primary me-2'>Bachata</a>
-                    <a href="#" className='btn btn-primary me-2'>Casino</a>
-                    <a href="#" className='btn btn-primary me-2'>Kizomba</a>
+
+                    {cursos && cursos.map((item) => (
+                        <BotoneraCursos key={item.id} item={item} />
+                    ))}
+
                 </div>
                 <h2 className='text-center mt-1 mb-3'>Cursos de Salsa</h2>
                 <div className='row'>

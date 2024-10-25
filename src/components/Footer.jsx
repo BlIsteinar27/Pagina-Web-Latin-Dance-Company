@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="container footer-container">
                     <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5  ">
                         <div className=" col-md-8">
-                            <h3><img src="images/logo (2).png" alt="image" /></h3>
+                            <h3><img src="/images/logo (2).png" alt="Logo" /></h3>
                             <p>Ofrecemos clases de salsa, bachata y otros estilos para todos los niveles. ¡Únete a nosotros y deja que la música te guíe! Con nosotros aprendes a bailar, te lo aseguramos😎
                             Ven y aprende con especialistas en cada Género.</p>
                             <p>Nuestras redes:</p>

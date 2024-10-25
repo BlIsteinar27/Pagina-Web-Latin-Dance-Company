@@ -1,14 +1,14 @@
 import React from 'react'
 
-const CardCursos = () => {
-    return (
-        <>
-            <div className="col-md-5 col-lg-3 mb-4" >
+const CardCur = ({item}) => {
+  return (
+    <>
+        <div className="col-md-5 col-lg-3 mb-4" >
                 <div className="card h-100">
                     <a href="index.html"><img src="images/curso salsa.jpg" className="card-img-top" alt="image" /></a>
                     <div className="card-body p-0">
                         <a href="index.html">
-                            <h5 className="card-title pt-4">Cursos Salsa</h5>
+                            <h5 className="card-title pt-4">Cursos {item.curso}</h5>
                         </a>
                         <p className="card-text">Basico</p>
                         <div className="card-text">
@@ -21,8 +21,8 @@ const CardCursos = () => {
                     </div>
                 </div>
             </div>
-        </>
-    )
+    </>
+  )
 }
 
-export default CardCursos
+export default CardCur

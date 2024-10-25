@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import FiltroCursos from './FiltroCursos'
 
 const Header = () => {
     return (
@@ -7,7 +8,7 @@ const Header = () => {
             <header id="nav" className="site-header position-fixed text-white bg-navBar">
                 <nav id="navbar-example2" className="navbar navbar-expand-lg py-2">
                     <div className="container ">
-                        <a className="navbar-brand" href="./index.html"><img src="images/logo (2).png" alt="image" /></a>
+                        <a className="navbar-brand" href="./index.html"><img src="/images/logo (2).png" alt="Logo" /></a>
                         <button className="navbar-toggler text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation"><ion-icon name="menu-outline" style={{ fontSize: 30 }} /></button>
                         <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
                             <div className="offcanvas-header">
@@ -22,14 +23,7 @@ const Header = () => {
                                     <li className="nav-item dropdown ">
                                         <a className="nav-link me-md-4 text-center dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Clases</a>
                                         <ul className="dropdown-menu dropdown-menu-dark">
-                                            <li><Link to='/cursos' href="#" className="dropdown-item">Salsa</Link>
-                                            </li>
-                                            <li><a href="index.html" className="dropdown-item">Bachata</a>
-                                            </li>
-                                            <li><a href="index.html" className="dropdown-item">Kizomba</a>
-                                            </li>
-                                            <li><a href="index.html" className="dropdown-item">Salsa MenStyle <span className="badge bg-danger">Nuevo</span></a></li>
-                                            <li><a href="index.html" className="dropdown-item">Formacion <span className="badge bg-warning">Exclusivo</span></a></li>
+                                            <FiltroCursos/>     
                                         </ul>
                                     </li>
                                     <li className="nav-item dropdown ">

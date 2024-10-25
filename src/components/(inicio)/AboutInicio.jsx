@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const AboutInicio = () => {
+    const [genero, setGenero] = useState("");
+    const [nivel, setNivel] = useState("");
+    const [ubicacion, setUbicacion] = useState("");
     return (
         <>
-            <section id="billboard">
+             <section id="billboard">
                 <div className="container">
                     <div className="row flex-lg-row-reverse align-items-center">
                         <div className="col-lg-6">
-                            <img src="images/Inicio.jpg" className="d-block mx-lg-auto img-fluid" alt="Latin Dance Company" width={700} height={500} loading="lazy" />
+                            <img src="/images/Inicio.jpg" className="d-block mx-lg-auto img-fluid" alt="Latin Dance Company" width={700} height={500} loading="lazy" />
                         </div>
                         <div className="col-lg-6">
                             <h1 className="text-capitalize lh-1 my-3">Descubre el ritmo en Latin Dance Company</h1>
@@ -16,8 +19,8 @@ const AboutInicio = () => {
                                 <div className="container billboard-search p-0">
                                     <div className="row billboard-row">
                                         <div className="col-lg-3 billboard-select">
-                                            <select className="form-select mb-1 mb-lg-0" aria-label="Genero">
-                                                <option selected>Genero</option>
+                                            <select className="form-select mb-1 mb-lg-0" aria-label="Genero" defaultValue="">
+                                                <option value="" disabled>Genero</option>
                                                 <option value={1}>Salsa</option>
                                                 <option value={2}>Bachata</option>
                                                 <option value={3}>Merengue</option>
@@ -26,16 +29,16 @@ const AboutInicio = () => {
                                             </select>
                                         </div>
                                         <div className="col-lg-3 billboard-select">
-                                            <select className="form-select mb-2 mb-lg-0" aria-label="Nivel">
-                                                <option selected>Nivel</option>
+                                            <select className="form-select mb-2 mb-lg-0" aria-label="Nivel" defaultValue="">
+                                                <option value="" disabled>Nivel</option>
                                                 <option value={1}>Principiante</option>
                                                 <option value={2}>Intermedio</option>
                                                 <option value={3}>Avanzado</option>
                                             </select>
                                         </div>
                                         <div className="col-lg-3 billboard-select">
-                                            <select className="form-select mb-2 mb-lg-0" aria-label="Ubicación">
-                                                <option selected>Ubicación</option>
+                                            <select className="form-select mb-2 mb-lg-0" aria-label="Ubicación" defaultValue="">
+                                                <option value="" disabled>Ubicación</option>
                                                 <option value={1}>Naguanagua</option>
                                                 <option value={2}>Paraparal</option>
                                                 <option value={3}>San Diego</option>
@@ -51,7 +54,6 @@ const AboutInicio = () => {
                     </div>
                 </div>
             </section>
-
         </>
     )
 }
