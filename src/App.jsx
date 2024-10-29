@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
@@ -8,7 +7,6 @@ import Cursos from './pages/Cursos'
 
 function App() {
 
-
   return (
     <>
       <BrowserRouter>
@@ -17,6 +15,7 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route path="/inicio" element={<Inicio />} />
           <Route path="/cursos" element={<Cursos />} />
+          <Route path="/cursos/:nombre/:id" element={<Cursos />} />
           <Route path="*" element={<Inicio />} />
         </Routes>
         <Footer />

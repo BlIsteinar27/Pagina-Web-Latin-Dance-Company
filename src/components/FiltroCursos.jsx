@@ -22,7 +22,7 @@ const FiltroCursos = () => {
   return (
     <>
         {datos && datos.map((item, index) => (
-                <li key={index}><Link to='/cursos' className="dropdown-item" href="#">{item.curso}</Link></li>
+                <li key={index}><Link to={`/cursos/${item.id}`} className="dropdown-item" href="#">{item.curso}</Link></li>
             ))}
     </>
   )

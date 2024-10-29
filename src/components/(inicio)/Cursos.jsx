@@ -29,7 +29,7 @@ const Cursos = () => {
         <>
             <div className='container my-4 py-4'>
                 <h1 className='text-center m-0 py-lg-5'>Cursos Disponibles</h1>
-                <div className='container'>
+                <div className='container '>
                     <div className='row'>
                         {datos && datos.map((item) => (
                             <CardCursos key={item.id} item={item} />

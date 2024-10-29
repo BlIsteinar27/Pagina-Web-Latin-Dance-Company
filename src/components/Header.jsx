@@ -8,7 +8,7 @@ const Header = () => {
             <header id="nav" className="site-header position-fixed text-white bg-navBar">
                 <nav id="navbar-example2" className="navbar navbar-expand-lg py-2">
                     <div className="container ">
-                        <a className="navbar-brand" href="./index.html"><img src="/images/logo (2).png" alt="Logo" /></a>
+                        <Link to='/inicio' className="navbar-brand" href="#"><img src="/images/logo (2).png" alt="Logo" /></Link>
                         <button className="navbar-toggler text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation"><ion-icon name="menu-outline" style={{ fontSize: 30 }} /></button>
                         <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
                             <div className="offcanvas-header">
@@ -20,8 +20,11 @@ const Header = () => {
                                     <li className="nav-item">
                                         <Link to='/inicio' className="nav-link active me-md-4" href="#">Inicio</Link>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link to='/cursos' className="nav-link me-md-4" href="#">Cursos</Link>
+                                    </li>
                                     <li className="nav-item dropdown ">
-                                        <a className="nav-link me-md-4 text-center dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Clases</a>
+                                        <a className="nav-link me-md-4 text-center dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Horarios de</a>
                                         <ul className="dropdown-menu dropdown-menu-dark">
                                             <FiltroCursos/>     
                                         </ul>

@@ -1,137 +1,94 @@
-import { useEffect, useState } from "react"
-import BotoneraSedes from "../components/(cursos)/BotoneraSedes"
-import BotoneraCursos from "../components/(cursos)/BotoneraCursos"
+import { useEffect, useState } from "react";
+import BotoneraSedes from "../components/(cursos)/BotoneraSedes";
+import BotoneraCursos from "../components/(cursos)/BotoneraCursos";
+import CardCur from "../components/(cursos)/CardCur";
+import { useParams } from "react-router-dom";
 
-const API = "http://localhost/latin%20dance/api/cursos/getCursos.php."
-const API2 = "http://localhost/latin%20dance/api/sedes/getSedes.php"
+const API2 = "http://localhost/latin%20dance/api/sedes/getSedes.php";
+const API4 = "http://localhost/latin%20dance/api/cursos/getCursoporsede.php?id=";
 
 const Cursos = () => {
+    const params = useParams();
+    const id = params.id; // Obtener el ID desde los parámetros
+    const nombre = params.nombre;
 
-    const [cursos, setCursos] = useState([])
-    const [sedes, setSedes] = useState([])
+    const [cursos, setCursos] = useState([]);
+    const [sedes, setSedes] = useState([]);
+    const [selectedSede, setSelectedSede] = useState(null); // Estado para la sede seleccionada
+    const [selectedCurso, setSelectedCurso] = useState(null); // Estado para el curso seleccionado
 
-    const getCursos = async () => {
+    const getCursosPorSede = async (sedeId) => {
         try {
-            const response = await fetch(API);
+            const response = await fetch(`${API4}${sedeId}`);
             const data = await response.json();
-            //console.log(data)
-            setCursos(data);
+            if (Array.isArray(data)) {
+                setCursos(data); // Actualiza los cursos según la sede seleccionada
+            } else {
+                console.error('La respuesta no es un array:', data);
+                setCursos([]); // Manejar el error como prefieras
+            }
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     };
+
     const getSedes = async () => {
         try {
             const response = await fetch(API2);
             const data = await response.json();
-            //console.log(data)
             setSedes(data);
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     };
+
     useEffect(() => {
-        getCursos();
-        getSedes();
+        getSedes(); // Obtener sedes al cargar el componente
     }, []);
 
+    // Manejar la selección de sede
+    const handleSelectSede = (sede) => {
+        setSelectedSede(sede); // Actualiza la sede seleccionada
+        getCursosPorSede(sede.id); // Llama a la API para obtener los cursos de esta sede
+        setSelectedCurso(null); // Reinicia la selección del curso al cambiar de sede
+    };
+
+    // Manejar la selección de curso
+    const handleSelectCurso = (curso) => {
+        setSelectedCurso(curso); // Actualiza el curso seleccionado
+    };
+
     return (
-        <>
-            <div className='container mt-5 pt-5'>
-                    <h3 className='text-center'>Sedes</h3> <br />
-                <div className='d-flex justify-content-center align-items-center mb-3'>
-
-                    {sedes && sedes.map((item) => (
-                        <BotoneraSedes key={item.id} item={item} />
-                    ))}
-
-                </div>
-                    <h3 className='text-center'>Otros generos a explorar</h3> <br />
-                <div className='d-flex justify-content-center align-items-center mb-3'>
-
-                    {cursos && cursos.map((item) => (
-                        <BotoneraCursos key={item.id} item={item} />
-                    ))}
-
-                </div>
-                <h2 className='text-center mt-1 mb-3'>Cursos de Salsa</h2>
-                <div className='row'>
-                    <div className="col-md-5 col-lg-3 mb-4" >
-                        <div className="card h-100">
-                            <a href="index.html"><img src="images/curso salsa.jpg" className="card-img-top" alt="image" /></a>
-                            <div className="card-body p-0">
-                                <a href="index.html">
-                                    <h5 className="card-title pt-4">Cursos Salsa</h5>
-                                </a>
-                                <p className="card-text">Basico</p>
-                                <div className="card-text">
-                                    <ul className="d-flex">
-                                        <li className="residence-list"> <i className="bi bi-calendar"></i>Dia: Sabado</li>
-                                        <li className="residence-list"> <i className="bi bi-clock"></i> 12:00 AM</li>
-                                        <li className="residence-list"> <i className="bi bi-geo-alt"></i>Sede: Naguanagua</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-5 col-lg-3 mb-4" >
-                        <div className="card h-100">
-                            <a href="index.html"><img src="images/curso salsa.jpg" className="card-img-top" alt="image" /></a>
-                            <div className="card-body p-0">
-                                <a href="index.html">
-                                    <h5 className="card-title pt-4">Cursos Salsa</h5>
-                                </a>
-                                <p className="card-text">Intermedio</p>
-                                <div className="card-text">
-                                    <ul className="d-flex">
-                                        <li className="residence-list"> <i className="bi bi-calendar"></i>Dia: Sabado</li>
-                                        <li className="residence-list"> <i className="bi bi-clock"></i> 01:00 PM</li>
-                                        <li className="residence-list"> <i className="bi bi-geo-alt"></i>Sede: Naguanagua</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-5 col-lg-3 mb-4" >
-                        <div className="card h-100">
-                            <a href="index.html"><img src="images/curso salsa.jpg" className="card-img-top" alt="image" /></a>
-                            <div className="card-body p-0">
-                                <a href="index.html">
-                                    <h5 className="card-title pt-4">Cursos Salsa</h5>
-                                </a>
-                                <p className="card-text">Avanzado</p>
-                                <div className="card-text">
-                                    <ul className="d-flex">
-                                        <li className="residence-list"> <i className="bi bi-calendar"></i>Dia: Domingo</li>
-                                        <li className="residence-list"> <i className="bi bi-clock"></i> 09:00 AM</li>
-                                        <li className="residence-list"> <i className="bi bi-geo-alt"></i>Sede: Naguanagua</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-5 col-lg-3 mb-4" >
-                        <div className="card h-100">
-                            <a href="index.html"><img src="images/curso salsa.jpg" className="card-img-top" alt="image" /></a>
-                            <div className="card-body p-0">
-                                <a href="index.html">
-                                    <h5 className="card-title pt-4">Cursos Salsa</h5>
-                                </a>
-                                <p className="card-text">Basico</p>
-                                <div className="card-text">
-                                    <ul className="d-flex">
-                                        <li className="residence-list"> <i className="bi bi-calendar"></i>Dia: Domingo</li>
-                                        <li className="residence-list"> <i className="bi bi-clock"></i> 11:00 AM</li>
-                                        <li className="residence-list"> <i className="bi bi-geo-alt"></i>Sede: Naguanagua</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div className='container mt-5 pt-5'>
+            <div className='d-flex justify-content-center align-items-center my-5'>
+                {sedes && sedes.map((item) => (
+                    <BotoneraSedes key={item.id} item={item} onSelect={handleSelectSede} />
+                ))}
             </div>
-        </>
-    )
+
+            {selectedSede ? (
+                <>
+                    <h3 className='text-center mt-1 mb-5'> Sede {selectedSede.nombre} </h3>
+                    <h3 className='text-center text-white-50'>Cursos disponibles ({cursos.length})</h3> <br />
+                    <div className='d-flex justify-content-center align-items-center mb-3 mt-0'>
+                        {cursos && cursos.map((item) => (
+                            <BotoneraCursos key={item.id} item={item} sede={selectedSede.nombre} onSelect={handleSelectCurso} />
+                        ))}
+                    </div>
+
+                    {selectedCurso ? (
+                        <div className='row'>
+                            <CardCur key={selectedCurso.id} item={selectedCurso} />
+                        </div>
+                    ) : (
+                        <h3 className='text-center'>Por favor, selecciona un curso para ver los cursos disponibles.</h3>
+                    )}
+                </>
+            ) : (
+                <h3 className='text-center'>Por favor, selecciona una sede para ver los cursos disponibles.</h3>
+            )}
+        </div>
+    );
 }
 
-export default Cursos
+export default Cursos;
