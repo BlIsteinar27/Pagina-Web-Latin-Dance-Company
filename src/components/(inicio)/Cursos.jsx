@@ -12,7 +12,7 @@ const Cursos = () => {
         try {
             const response = await fetch(API);
             const data = await response.json();
-            //console.log(data)
+            console.log(data)
             setDatos(data);
         } catch (error) {
             console.error(error)

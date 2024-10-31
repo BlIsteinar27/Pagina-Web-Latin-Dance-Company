@@ -16,7 +16,7 @@ const CardCursos = ({ item }) => {
                     <div className='card-footer'>
                         <div className="card-text">
                             <ul className="d-flex">
-                                <li className="residence-list"> <Link to={`/cursos/${item.id}`} href="#" className='btn btn-outline-primary'>Mas info</Link></li>
+                                <li className="residence-list"> <Link to={`/detalle/${item.id}`} href="#" className='btn btn-outline-primary'>Mas info</Link></li>
                             </ul>
                         </div>
                     </div>
